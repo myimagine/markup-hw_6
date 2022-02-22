@@ -1,0 +1,312 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0 0 1em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+img {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: orange;
+}
+
+.logo {
+  display: block;
+  width: 120px;
+}
+
+.menu {
+  list-style: none;
+  align-items: center;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  padding: 80px 0;
+  margin: 0;
+  text-align: center;
+  background-color: #ECEFF1;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  transition: left .3s ease;
+}
+
+.menu li {
+  margin-left: 1em;
+}
+
+.menu__item {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 12px 24px;
+  transition: opacity .3s ease;
+}
+
+.menu a:hover {
+  opacity: 0.6;
+}
+
+.menu-checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  transition: top .3s ease, transform .3s ease;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu-checkbox:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+.menu-checkbox:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+.menu-checkbox:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu-checkbox:checked ~ .menu {
+  visibility: visible;
+  left: 0;
+}
+
+.page-main {
+  flex-grow: 1;
+}
+
+.content {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.card-list {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.card {
+  margin: 0 10px 25px;
+  padding: 1rem;
+  border: 1px solid #555;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 8px solid pink;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+}
+
+.card .btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: purple;
+  color: #fff;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.5em 1.5em;
+  border-radius: 2em;
+  font-weight: 700;
+  transition: box-shadow .3s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+.sidebar {
+  padding: 1rem;
+  background-color: lightblue;
+}
+
+.sidebar-left {
+  background-color: pink;
+}
+
+.holder {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  border: 3px solid #000;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+.holder .item {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.holder .item:nth-child(1) {
+  width: 50%;
+  background-color:red;
+}
+
+.holder .item:nth-child(2) {
+  background-color:lightblue;
+  order: 3;
+}
+
+.holder .item:nth-child(3) {
+  background-color:purple;
+  order: 2;
+}
+
+.holder .item:nth-child(4) {
+  background-color: green;
+  order: 4;
+}
+
+.holder .item:nth-child(5) {
+  width: 50%;
+  order: 1;
+  background-color:orange;
+}
+
+.footer {
+  padding: 1rem;
+  background-color: lightgreen;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (min-width:500px) {
+  .menu__btn,
+  .menu-checkbox {
+    display: none;
+  }
+
+  .menu {
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+    position: static;
+    width: auto;
+    height: auto;
+    visibility: visible;
+    display: flex;
+  }
+
+  .menu__item {
+    padding: 0;
+  }
+
+  .page-main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .card {
+    width: calc(50% - 20px);
+    margin: 0 10px 25px;
+  }
+
+  .sidebar {
+    flex-shrink: 0;
+    width: 50%;
+  }
+}
+
+@media (min-width:1024px) {
+  .logo {
+    width: 200px;
+  }
+
+  .page-main {
+    flex-wrap: nowrap;
+  }
+
+  .sidebar {
+    width: 210px;
+  }
+
+  .sidebar-left {
+    order: -1;
+  }
+}
+
+@media (min-width:1200px) {
+  .card {
+    width: calc(33.333% - 20px);
+  }
+}
